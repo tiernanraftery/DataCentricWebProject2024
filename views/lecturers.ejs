@@ -1,0 +1,28 @@
+<head></head>
+    <h1>Lecturers</h1>
+</head>
+<body>
+    <ul>
+        <li><a href="/">home</a></li>
+    </ul>
+    <table border="1">
+        <thead>
+          <tr>
+            <th>lecturer ID</th>
+            <th>Name</th>
+            <th>Department ID</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% lecturers.forEach(lecturer => { %>
+            <tr>
+              <td><%=lecturer._id%></td>
+              <td><%=lecturer.name%></td>
+              <td><%=lecturer.did%></td>
+              <td><a href="/lecturers/delete/<%=lecturer._id%>">Delete</a></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+</body>
