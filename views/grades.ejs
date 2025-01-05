@@ -1,0 +1,44 @@
+<head></head>
+    <h1>Grades</h1>
+</head>
+<body>
+        <li><a href="/">home</a></li>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Module</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--iterate over studentGrades to display each student's modules and grades-->
+                <% for (const studentName in studentGrades) { %>
+                    <% const modules = studentGrades[studentName]; %>
+                    
+                    <!--handle students without modules or with one-->
+                    <% if (modules.length === 1) { %>
+                        <tr>
+                            <td><%= studentName %></td>
+                            <td><%= modules[0].moduleName %></td>
+                            <td><%= modules[0].grade %></td>
+                        </tr>
+                    <% } else { %>
+                        <!--if student has multiple modules-->
+                        <tr>
+                            <td rowspan="<%= modules.length %>"><%= studentName %></td>
+                            <td><%= modules[0].moduleName %></td>
+                            <td><%= modules[0].grade %></td>
+                        </tr>
+                        <% for (let i = 1; i < modules.length; i++) { %>
+                            <tr>
+                                <td><%= modules[i].moduleName %></td>
+                                <td><%= modules[i].grade %></td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                <% } %>
+            </tbody>
+        </table>
+        
+</body>
