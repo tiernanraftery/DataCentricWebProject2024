@@ -1,0 +1,29 @@
+<head></head>
+    <h1>Students</h1>
+</head>
+<body>
+    <ul>
+        <li><a href="/students/add">Add Student</a></li>
+        <li><a href="/">home</a></li>
+    </ul>
+    <table border="1">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% students.forEach(student => { %>
+            <tr>
+              <td><%=student.sid%></td>
+              <td><%=student.name%></td>
+              <td><%=student.age%></td>
+              <td><a href="/students/edit/<%=student.sid%>">Update</a></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+</body>
